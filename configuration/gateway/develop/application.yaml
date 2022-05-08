@@ -20,15 +20,6 @@ spring:
             - Path=/employees/**
       default-filters:
         - TokenRelay
-  security:
-    oauth2:
-        registration:
-          keycloak-spring-gateway-client:
-            provider: keycloak-provider
-            client-id: spring-gateway-client
-            client-secret: ${keycloak-secret}
-            authorization-grant-type: authorization_code
-
 logging:
   level:
     org:
