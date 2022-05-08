@@ -5,3 +5,25 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        #        - id: service-users-sign-in
+        #          uri: lb://users
+        #          predicates:
+        #            - Path=/signIn,/signUp
+        - id: service-employee
+          uri: lb://employee
+          predicates:
+            - Path=/employees/**
+      default-filters:
+        - TokenRelay
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          web: DEBUG
